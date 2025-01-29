@@ -8,6 +8,27 @@ body{
   margin: 0;
 }
 
+
+@keyframes fade-left {
+  from {
+    transform: translate(40px);
+    opacity: 0;
+  }to{
+    transform: translate(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fade-left2 {
+  from {
+    transform: translate(40px);
+    opacity: 0;
+  }to{
+    transform: translate(0);
+    opacity: 1;
+  }
+}
+
 .container{
   width: 100%;
   height: 100vh;
@@ -59,8 +80,8 @@ body{
     justify-content: center;
     flex-direction: column;
     z-index: 1;
-    position: absolute;
-    bottom: 200px;
+    // position: absolute;
+    // bottom: 200px;
     .logo{
       margin-bottom: 280px;
     }
@@ -141,6 +162,7 @@ body{
             display: flex;
             align-items: center;
             gap: 16px;
+            cursor: pointer;
           }
         }
         p{
@@ -167,6 +189,7 @@ body{
           border-radius: 50px;
           color: #FFD7D8;
           font-size: 14px;
+          cursor: pointer;
           img{
             margin-left: 20px;
           }
@@ -178,14 +201,92 @@ body{
       }
     }
   }
-}
 
-@keyframes fade-left {
-  from {
-    transform: translate(40px);
-    opacity: 0;
-  }to{
-    transform: translate(0);
-    opacity: 1;
+  .filter__price{
+    z-index: 1;
+    position: absolute;
+    left: 64px;
+    top: 64px;
+    animation: fade-left2 2s;
+    
+    h1{
+      color: white;
+      font-weight: 400;
+    }
+    .choices{
+      display: flex;
+      align-items: center;
+      gap: 200px;
+      .choose{
+        margin-top: 50px;
+        h3{
+          color: white;
+          font-weight: 400;
+          font-size: 16px;
+        }
+        .btns{
+          display: flex;
+          align-items: center;
+          gap: 12px;
+          button{
+            width: 40px;
+            height: 40px;
+            border-radius: 50px;
+            border: 1px solid #FFD7D8;
+            color: #FFD7D8;
+            background: rgba($color: #FFD7D8, $alpha: .3);
+            backdrop-filter: blur(10px);
+            font-size: 14px;
+            cursor: pointer;
+            transition: .3s;
+    
+            &.active{
+              background: #FFD7D8;
+              color: black;
+              transition: .3s;
+            }
+          }
+        }
+      }
+    }
+    .ranges{
+      display: flex;
+      align-items: center;
+      gap: 36px;
+      .range{
+        margin-top: 40px;
+        h3{
+          color: #FFD7D8;
+          font-size: 14px;
+          font-weight: 600;
+          span{
+            color: white;
+            font-weight: 400;
+          }
+        }
+      }
+    }
+
+    .apartments{
+      margin-top: 50px;
+      .apartment{
+        width: 560px;
+        height: 80px;
+        background: white;
+        cursor: pointer;
+        border-radius: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+  }
+
+  .apartment__more{
+    z-index: 1;
+  }
+
+  .back{
+    z-index: 1;
   }
 }

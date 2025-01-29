@@ -4,10 +4,15 @@ import { Assets } from "./assets";
 import { Videos } from "./assets/videos";
 import { Icons } from "./assets/icons";
 import AOS from 'aos';
-import 'aos/dist/aos.css'; // Import AOS styles
+import 'aos/dist/aos.css'; 
+import { Components } from "./components";
 
 function App() {
   const [index, setIndex] = React.useState(0);
+  const [block, setBlock] = React.useState(1)
+  const [rooms, setRooms] = React.useState(1)
+  const [scale, setScale] = React.useState({min: 64, max: 250})
+  const [price, setPrice] = React.useState({min: 5, max: 300})
 
   React.useEffect(() => {
     let timeout;
@@ -15,11 +20,31 @@ function App() {
     if (index === 0 || index === 1) {
       timeout = setTimeout(() => {
         setIndex(1);
-      }, 8000);
+      }, 8100);
     } else if (index === 2 || index === 3) {
       timeout = setTimeout(() => {
         setIndex(3);
-      }, 2700);
+      }, 2900);
+    } else if (index === 4 || index === 5) {
+      timeout = setTimeout(() => {
+        setIndex(5);
+      }, 900);
+    } else if (index === 6 || index === 7) {
+      timeout = setTimeout(() => {
+        setIndex(7);
+      }, 3000);
+    } else if (index === 8 || index === 9) {
+      timeout = setTimeout(() => {
+        setIndex(9);
+      }, 800);
+    }else if (index === 10 || index === 11) {
+      timeout = setTimeout(() => {
+        setIndex(11);
+      }, 800);
+    }else if (index === 12 || index === 13) {
+      timeout = setTimeout(() => {
+        setIndex(13);
+      }, 2900);
     }
 
     return () => {
@@ -66,12 +91,12 @@ function App() {
         ))}
       </div>
       {
-        index === 0 || index === 1?
+        index === 1?
         <div
           className="content"
           data-aos="fade-zoom-in"
         >
-          {/* <img src={Assets.logo} alt="logo" className="logo" /> */}
+          <img src={Assets.logo} alt="logo" className="logo" />
           <h1>Добро пожаловать в Энесай!</h1>
           <p>Ознакомьтесь с нашим комплексом подробнее...</p>
           <button onClick={() => setIndex(2)}>
@@ -79,6 +104,7 @@ function App() {
           </button>
         </div> 
         :
+        index === 3 ?
         <div className="more__content">
           <img src={Assets.logo} alt="logo" className="logo"/>
           <div className="cards">
@@ -124,10 +150,10 @@ function App() {
             </div>
             <div className="card">
               <h1>
-                Блок А
+                Квартиры
               </h1>
-              <span>
-                Посмотреть блок А
+              <span onClick={() => setIndex(4)}>
+                Посмотреть
                 <img 
                   src={Assets.arrow}
                 />
@@ -138,10 +164,10 @@ function App() {
             </div> 
             <div className="card">
               <h1>
-                Блок Б
+                Ген. план
               </h1>
               <span>
-                Посмотреть блок Б
+                Посмотреть
                 <img 
                   src={Assets.arrow}
                 />
@@ -151,7 +177,101 @@ function App() {
               </p>
             </div> 
           </div>
+        </div> 
+        :
+        index >= 4 && index <= 5 ?
+        <div className="filter__price">
+          <h1>Выбор квартиры</h1>
+          <div className="choices">
+            <div className="choose">
+              <h3>Блок</h3>
+              <div className="btns">
+                <button 
+                  className={block === 1 ? 'active' : ''}
+                  onClick={() => setBlock(1)}
+                >
+                  1
+                </button>
+                <button 
+                  className={block === 2 ? 'active' : ''}
+                  onClick={() => setBlock(2)}
+                >
+                  2
+                </button>
+              </div>
+            </div>
+            <div className="choose">
+              <h3>Количество комнат</h3>
+              <div className="btns">
+                <button 
+                  className={rooms === 1 ? 'active' : ''}
+                  onClick={() => setRooms(1)}
+                >
+                  1
+                </button>
+                <button 
+                  className={rooms === 2 ? 'active' : ''}
+                  onClick={() => setRooms(2)}
+                >
+                  2
+                </button>
+                <button 
+                  className={rooms === 3 ? 'active' : ''}
+                  onClick={() => setRooms(3)}
+                >
+                  3
+                </button>
+                <button 
+                  className={rooms === 4 ? 'active' : ''}
+                  onClick={() => setRooms(4)}
+                >
+                  4
+                </button>
+                <button 
+                  className={rooms === 5 ? 'active' : ''}
+                  onClick={() => setRooms(5)}
+                >
+                  5
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div className="ranges">
+            <div className="range">
+              <h3>
+                <span>Area:</span> {scale.min} - {scale.max} М²
+              </h3>
+              <Components.DualRangeSlider min={64} max={250} setValue={setScale}/>
+            </div>
+            <div className="range">
+              <h3>
+                {price.min} - {price.max} $
+              </h3>
+              <Components.DualRangeSlider min={5} max={300} setValue={setPrice}/>
+            </div>
+          </div>
+
+          <div className="apartments">
+            <div className="apartment" onClick={() => setIndex(6)}>
+              hello
+            </div>
+          </div>
         </div>
+        :
+        index === 7 ?
+        <div className="apartment__more">
+          <button onClick={() => setIndex(8)}>Открыть</button>
+        </div> :
+        index === 9 ?
+        <div className="back">
+          <button onClick={() => setIndex(10)}>Назад</button>
+        </div> :
+        index === 11 ?
+        <div className="back">
+          <button onClick={() => setIndex(12)}>Назад</button>
+        </div> :
+        null
       }
     </div>
   );
