@@ -15,6 +15,13 @@ import static7 from './static3.mp4'
 import dvor1 from './dvor1.mp4'
 import staticDvor1 from './staticdvor1.mp4'
 import dvor2 from './dvor2.mp4'
+import eighth from './8.mp4'
+import karusel1 from './karusel1.mp4'
+import staticKarusel from './statickarusel.mp4'
+import karuselBack from './karuselback.mp4'
+import gym1 from './gym1.mp4'
+import gymstatic from './gymstatic.mp4'
+import gymback from './gymback.mp4'
 
 export const Videos = [
   {id: 0, video: first},
@@ -35,4 +42,14 @@ export const Videos = [
   {id: 15, video: staticDvor1},
   {id: 16, video: dvor2},
   {id: 17, video: static2},
+  {id: 18, video: eighth},
+  {id: 19, video: static2},
+  {id: 20, video: karusel1},
+  {id: 21, video: staticKarusel},
+  {id: 22, video: karuselBack},
+  {id: 23, video: staticDvor1},
+  {id: 24, video: gym1},
+  {id: 25, video: gymstatic},
+  {id: 26, video: gymback},
+  {id: 27, video: staticDvor1},
 ]
