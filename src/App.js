@@ -20,11 +20,11 @@ function App() {
     if (index === 0 || index === 1) {
       timeout = setTimeout(() => {
         setIndex(1);
-      }, 8100);
+      }, 7150);
     } else if (index === 2 || index === 3) {
       timeout = setTimeout(() => {
         setIndex(3);
-      }, 2900);
+      }, 1000);
     } else if (index === 4 || index === 5) {
       timeout = setTimeout(() => {
         setIndex(5);
