@@ -12,6 +12,9 @@ import sixth from './6.mp4'
 import static6 from './static4.mp4'
 import seventh from './7.mp4'
 import static7 from './static3.mp4'
+import dvor1 from './dvor1.mp4'
+import staticDvor1 from './staticdvor1.mp4'
+import dvor2 from './dvor2.mp4'
 
 export const Videos = [
   {id: 0, video: first},
@@ -28,4 +31,8 @@ export const Videos = [
   {id: 11, video: static6},
   {id: 12, video: seventh},
   {id: 13, video: static7},
+  {id: 14, video: dvor1},
+  {id: 15, video: staticDvor1},
+  {id: 16, video: dvor2},
+  {id: 17, video: static2},
 ]

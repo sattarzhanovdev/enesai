@@ -45,6 +45,14 @@ function App() {
       timeout = setTimeout(() => {
         setIndex(13);
       }, 2900);
+    }else if (index === 14 || index === 15) {
+      timeout = setTimeout(() => {
+        setIndex(15);
+      }, 3090);
+    }else if (index === 16 || index === 17) {
+      timeout = setTimeout(() => {
+        setIndex(17);
+      }, 3090);
     }
 
     return () => {
@@ -104,7 +112,7 @@ function App() {
           </button>
         </div> 
         :
-        index === 3 ?
+        index === 3 || index === 1 || index === 0 ?
         <div className="more__content">
           <img src={Assets.logo} alt="logo" className="logo"/>
           <div className="cards">
@@ -166,7 +174,7 @@ function App() {
               <h1>
                 Ген. план
               </h1>
-              <span>
+              <span onClick={() => setIndex(14)}>
                 Посмотреть
                 <img 
                   src={Assets.arrow}
@@ -271,6 +279,11 @@ function App() {
         <div className="back">
           <button onClick={() => setIndex(12)}>Назад</button>
         </div> :
+        index === 15 ?
+        <div className="back">
+          <button onClick={() => setIndex(16)}>Назад</button>
+        </div>
+        :
         null
       }
     </div>
