@@ -3,23 +3,39 @@ import "./App.scss";
 import { Assets } from "./assets";
 import { Videos } from "./assets/videos";
 import { Icons } from "./assets/icons";
+import AOS from 'aos';
+import 'aos/dist/aos.css'; // Import AOS styles
 
 function App() {
   const [index, setIndex] = React.useState(0);
 
   React.useEffect(() => {
-    if(index === 0 || index === ``){
-      setTimeout(() => {
-        setIndex(1)
-      }, 8100)
-    }else if(index === 2 || index === 3){
-      setTimeout(() => {
-        setIndex(3)
-      }, 2900)
+    let timeout;
+    
+    if (index === 0 || index === 1) {
+      timeout = setTimeout(() => {
+        setIndex(1);
+      }, 8000);
+    } else if (index === 2 || index === 3) {
+      timeout = setTimeout(() => {
+        setIndex(3);
+      }, 2700);
     }
-  }, [index])
 
-  console.log(index);
+    return () => {
+      clearTimeout(timeout); 
+    };
+  }, [index]);
+
+  React.useEffect(() => {
+    AOS.init({
+      duration: 1000, 
+      easing: 'ease-in-out', 
+      once: true,
+    });
+
+    AOS.refresh()
+  }, [index]);
   
 
 
@@ -51,14 +67,18 @@ function App() {
       </div>
       {
         index === 0 || index === 1?
-        <div className="content">
-          <img src={Assets.logo} alt="logo" className="logo" />
+        <div
+          className="content"
+          data-aos="fade-zoom-in"
+        >
+          {/* <img src={Assets.logo} alt="logo" className="logo" /> */}
           <h1>Добро пожаловать в Энесай!</h1>
           <p>Ознакомьтесь с нашим комплексом подробнее...</p>
           <button onClick={() => setIndex(2)}>
             Продолжить <img src={Assets.arrow} alt="arrow" />
           </button>
-        </div> :
+        </div> 
+        :
         <div className="more__content">
           <img src={Assets.logo} alt="logo" className="logo"/>
           <div className="cards">
