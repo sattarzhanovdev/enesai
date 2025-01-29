@@ -112,7 +112,7 @@ function App() {
           </button>
         </div> 
         :
-        index === 3 || index === 1 || index === 0 ?
+        index === 3 ?
         <div className="more__content">
           <img src={Assets.logo} alt="logo" className="logo"/>
           <div className="cards">
