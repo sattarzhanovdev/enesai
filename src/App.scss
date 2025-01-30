@@ -48,6 +48,32 @@ body{
   //   top: 0;
   //   left: 0;
   // }
+
+  .sound__controls{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: white;
+    z-index: 2;
+    position: absolute;
+    bottom: 120px;
+    right: 64px;
+    button{
+      background: #FFD7D8;
+      padding: 12px;
+      border-radius: 50px;
+      border: 0;
+      color: black;
+      cursor: pointer;
+      position: relative;
+      right: -50px;
+    }
+    input{
+      transform: rotate(-90deg);
+    }
+
+  }
+
   .video__content {
     position: absolute;
     top: 0;
@@ -111,6 +137,11 @@ body{
       border: 1px solid#FFD7D8;
       margin-top: 64px;
       cursor: pointer;
+
+      &.active{
+        background: #FFD7D8;
+        color: black;
+      }
     }
 
   }
@@ -274,6 +305,19 @@ body{
     left: 64px;
     top: 64px;
     animation: fade-left2 2s;
+    .back__filter{
+      padding: 16px 42px;
+      background: #FFD7D8;
+      border-radius: 50px;
+      border: 0;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      cursor: pointer;
+      img{
+        transform: rotate(180deg);
+      }
+    }
     
     h1{
       color: white;
@@ -371,54 +415,79 @@ body{
       }
     }
 
-    .apartments{
-      margin-top: 50px;
+    .apart{
       display: flex;
       align-items: flex-start;
-      gap: 20px;
-      flex-direction: column;
-      overflow-y: scroll;
-      height: 60vh;
-      margin-bottom: 64px;
-      padding: 20px 0;
-      .apartment{
-        width: 560px;
-        max-height: 120px;
-        padding: 14px 0;
-        background: rgba($color: #000000, $alpha: .3);
-        border-radius: 6px;
-        color: white;
-        border: 1px solid rgba($color: white, $alpha: .4);
+      justify-content: center;
+      gap: 36px;
+      margin-top: 50px;
+      padding: 0;
+      margin-left: 0;
 
+      .apartments{
         display: flex;
-        align-items: center;
-        justify-content: space-around;
-
-        cursor: pointer;
-
-        .scale{
+        align-items: flex-start;
+        gap: 20px;
+        flex-direction: column;
+        overflow-y: scroll;
+        height: 60vh;
+        margin-bottom: 64px;
+        padding: 20px 0;
+        .apartment{
+          width: 560px;
+          max-height: 120px;
+          padding: 14px 0;
+          background: rgba($color: #000000, $alpha: .3);
+          border-radius: 6px;
+          color: white;
+          border: 1px solid rgba($color: white, $alpha: .4);
+  
           display: flex;
           align-items: center;
-          flex-direction: column;
-          p{
-            margin: 0;
-            font-size: 14px;
+          justify-content: space-around;
+  
+          cursor: pointer;
+  
+          .scale{
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            p{
+              margin: 0;
+              font-size: 14px;
+            }
+            h4{
+              margin: 0;
+              margin-top: 4px;
+            }
           }
-          h4{
-            margin: 0;
-            margin-top: 4px;
+  
+          .info{
+            display: flex;
+            align-items: flex-start;
+            flex-direction: column;
+            gap: 4px;
+            p{
+              margin: 0;
+              font-size: 14px;
+            }
           }
         }
-
-        .info{
-          display: flex;
-          align-items: flex-start;
-          flex-direction: column;
-          gap: 4px;
-          p{
-            margin: 0;
-            font-size: 14px;
-          }
+      }
+      
+      .plan{
+        width: 300px;
+        height: 200px;
+        background: rgba($color: #000000, $alpha: .5);
+        backdrop-filter: blur(10px);
+        border-radius: 32px;
+        border: 1px solid #FFD7D8;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 20px;
+        img{
+          width: 200px;
         }
       }
     }
@@ -426,10 +495,114 @@ body{
 
   .apartment__more{
     z-index: 1;
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    button{
+      padding: 16px 42px;
+      background: #FFD7D8;
+      border-radius: 50px;
+      border: 0;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      cursor: pointer;
+      position: absolute;
+      bottom: 128px;
+    }
+  }
+
+  .back__apartment{
+    width: 100%;
+    height: 100%;
+    padding: 64px 64px;
+    z-index: 1;
+    margin-left: 64px;
+    button{
+      padding: 16px 42px;
+      background: #FFD7D8;
+      border-radius: 50px;
+      border: 0;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      cursor: pointer;
+      img{
+        transform: rotate(180deg);
+      }
+    }
+    h1{
+      color: white;
+      margin-top: 64px;
+    }
+    
+    .info{
+      width: 500px;
+      height: 160px;
+      background: rgba($color: #000000, $alpha: .5);
+      backdrop-filter: blur(10px);
+      border-radius: 32px;
+      border: 1px solid #FFD7D8;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      padding: 32px;
+      color: white;
+
+      div{
+        width: 250px;
+        h4{
+          margin: 0;
+        }
+      }
+    }
+
+    .plan{
+      width: 500px;
+      height: 400px;
+      background: rgba($color: #000000, $alpha: .5);
+      backdrop-filter: blur(10px);
+      border-radius: 32px;
+      border: 1px solid #FFD7D8;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      padding: 32px;
+      color: white;
+      margin-top: 32px;
+
+      img{
+        width: 90%;
+      }
+    }
   }
 
   .garten{
     z-index: 1;
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    
+    .back__garten{
+      position: absolute;
+      left: 64px;
+      top: 64px;
+      button{
+        padding: 16px 42px;
+        background: #FFD7D8;
+        border-radius: 50px;
+        border: 0;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        cursor: pointer;
+        img{
+          transform: rotate(180deg);
+        }
+      }
+    }
     .karusel{
       background: none;
       border: 0;
@@ -455,6 +628,23 @@ body{
   }
 
   .back{
+    width: 100%;
+    height: 100%;
+    padding: 64px 64px;
     z-index: 1;
+    margin-left: 64px;
+    button{
+      padding: 16px 42px;
+      background: #FFD7D8;
+      border-radius: 50px;
+      border: 0;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      cursor: pointer;
+      img{
+        transform: rotate(180deg);
+      }
+    }
   }
 }
