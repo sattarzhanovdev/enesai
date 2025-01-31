@@ -25,6 +25,8 @@ function App() {
 
   const audio = React.useRef(new Audio(Audios.back));
   const audioOne = React.useRef(new Audio(Audios.first));
+  const audioDvor = React.useRef(new Audio(Audios.dvor));
+  const audioPlowad = React.useRef(new Audio(Audios.plowad));
 
   React.useEffect(() => {
     let timeout;
@@ -115,14 +117,25 @@ function App() {
 
     AOS.refresh()
   }, [index]);
+  
 
   React.useEffect(() => {
-    if(index === 1){
-      audioOne.current.play()
-    }else{
-      audioOne.current.pause()
+    if(stateAudioPlay){
+      if(index === 1){
+        audioOne.current.play()
+      }else if(index === 15){
+        audioDvor.current.play()
+      }else if(index === 21){
+        audioPlowad.current.play()
+      }else{
+        audioOne.current.pause()
+        audioDvor.current.pause()
+        audioPlowad.current.pause()
+      }
     }
   }, [index])
+  console.log(index);
+  
 
   const FilteredApartments = Apartments.filter(item => item.block === block && item.rooms === rooms && item.floor === floor && item.scale >= scale.min && item.scale <= scale.max && item.price >= price.min && item.price <= price.max)
 
