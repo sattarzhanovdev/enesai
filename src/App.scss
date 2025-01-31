@@ -612,6 +612,14 @@ body{
         position: absolute;
         left: 1140px;
         bottom: 680px;
+        @media (min-width: 1440px) {
+          left: 1000px;          
+          bottom: 620px;
+        }
+        @media (min-width: 2560px) {
+          left: 1750px;          
+          bottom: 1040px;
+        }
       }
     }
     .gym{
@@ -623,6 +631,14 @@ body{
         position: absolute;
         left: 500px;
         bottom: 500px;
+        @media (min-width: 1440px) {
+          left: 420px;          
+          bottom: 460px;
+        }
+        @media (min-width: 2560px) {
+          left: 800px;          
+          bottom: 750px;
+        }
       }
     }
   }
